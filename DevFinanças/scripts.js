@@ -8,8 +8,8 @@ const Modal = {
   close(){
     // fechar o modal 
     // remover a class active do modal
-    document.querySelector('.modal-overlay').classList.remove('active');
-  },
+    document.querySelector('.modal-overlay').classList.remove('active')
+  }
 }
 
 const Storage = {
@@ -17,9 +17,8 @@ const Storage = {
     return JSON.parse(localStorage.getItem("dev.finances:transaction")) || []
   },
 
-  set(transaction) {
+  set(transactions) {
     localStorage.setItem("dev.finances:transaction", JSON.stringify(transactions))
-    transactions()
   },
 }
 
@@ -72,7 +71,7 @@ const DOM = {
   transactionsContainer: document.querySelector('#data-table tbody'),
 
   addTransaction(transaction, index) {
-    const tr = document.createElement('tr');
+    const tr = document.createElement('tr')
     tr.innerHTML = DOM.innerHTMLTransaction(transaction, index)
     tr.dataset.index = index
 
@@ -109,9 +108,9 @@ const DOM = {
 
 const Utils = {
   formatAmount(value) {
-    value = Number(value) * 100
+    value = value * 100
 
-    return value;
+    return Math.round(value)
   },
 
   formatDate(date){
